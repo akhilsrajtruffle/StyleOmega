@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "947572359467",
+    "firebase_url": "https://styleomega-231cd.firebaseio.com",
+    "project_id": "styleomega-231cd",
+    "storage_bucket": "styleomega-231cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:947572359467:android:7b0599fd5de7c289e0c56e",
+        "android_client_info": {
+          "package_name": "com.example.styleomega"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "947572359467-5v7k53bg83bhtbpvnmmr004i4dg9pguu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.styleomega",
+            "certificate_hash": "d33ef674321b9bdce49d9ed5a9383a607fe38e0e"
+          }
+        },
+        {
+          "client_id": "947572359467-fai186vhc9cafja2s4gf8ddu685d3si1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoG-HBQzCzC8cKu8PEu7Z_DIcNCTbVRsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "947572359467-fai186vhc9cafja2s4gf8ddu685d3si1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
