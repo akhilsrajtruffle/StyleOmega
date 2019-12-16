@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         adminLink = (TextView) findViewById(R.id.admin_panel_link);
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
-        
+
 
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
