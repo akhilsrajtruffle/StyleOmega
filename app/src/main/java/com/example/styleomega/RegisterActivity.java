@@ -44,6 +44,16 @@ public class RegisterActivity extends AppCompatActivity {
         loginLink = (TextView) findViewById(R.id.login_link);
         loadingBar = new ProgressDialog(this);
 
+        loginLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
 
         createAccountButton.setOnClickListener(new View.OnClickListener() {
             @Override
