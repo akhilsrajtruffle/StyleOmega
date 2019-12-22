@@ -75,13 +75,6 @@
         android:layout_marginBottom="15dp"
         >
 
-<!--        <com.rey.material.widget.CheckBox-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/remember_me_chkb"-->
-<!--            android:text="Remember Me"-->
-
-<!--            />-->
 
 
     <com.rey.material.widget.CheckBox
@@ -174,9 +167,6 @@
         android:textSize="18sp"
         android:layout_centerHorizontal="true"
         android:textStyle="bold" />
-
-
-
 
 
 </RelativeLayout>

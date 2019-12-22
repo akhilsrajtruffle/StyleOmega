@@ -52,6 +52,28 @@ public class MainActivity extends AppCompatActivity {
         adminLink = (TextView) findViewById(R.id.admin_panel_link);
         notAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
 
+        adminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginButton.setText("Login Admin");
+                adminLink.setVisibility(View.INVISIBLE);
+                notAdminLink.setVisibility(View.VISIBLE);
+                parentDbName = "Admins";
+            }
+        });
+
+        notAdminLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                loginButton.setText("Login ");
+                adminLink.setVisibility(View.VISIBLE);
+                notAdminLink.setVisibility(View.INVISIBLE);
+                parentDbName = "Users";
+
+            }
+        });
+
 
         registerLink.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if (userPhoneKey != null && userPasswordKey != null) {
-            Toast.makeText(this, "asdad", Toast.LENGTH_SHORT).show();
+        if (userPasswordKey !="" && userPhoneKey!="") {
+
 
 
             if(!TextUtils.isEmpty(userPhoneKey)&& !TextUtils.isEmpty(userPasswordKey)){
@@ -86,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
 
-                allowAccess(userPhoneKey,userPasswordKey);
+                allowAccess(userPhoneKey,userPasswordKey);   //remember me function
             }
 
         }
@@ -96,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void allowAccess(final String phone, final String password) {
+    private void allowAccess(final String phone, final String password) {      //remember me function
 
         final DatabaseReference rootRef;
         rootRef = FirebaseDatabase.getInstance().getReference();
@@ -105,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                if ((dataSnapshot.child(parentDbName).child(phone).exists())) {
+                if ((dataSnapshot.child("Users").child(phone).exists())) {
 
-                    Users usersData = dataSnapshot.child(parentDbName).child(phone).getValue(Users.class);
+                    Users usersData = dataSnapshot.child("Users").child(phone).getValue(Users.class);
 
                     if (usersData.getPhone().equals(phone)) {
 
@@ -182,11 +204,24 @@ public class MainActivity extends AppCompatActivity {
 
                         if (usersData.getPassword().equals(password)) {
 
-                            Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
-                            loadingBar.dismiss();
+                            if (parentDbName.equals("Admins")){
 
-                            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                            startActivity(intent);
+                                Toast.makeText(MainActivity.this, "Admin Successful Login", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(MainActivity.this,AdminCategoryActivity.class);
+                                startActivity(intent);
+
+                            }
+                            else if(parentDbName.equals("Users")){
+
+                                Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
+                                loadingBar.dismiss();
+
+                                Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                                startActivity(intent);
+
+                            }
                         } else {
                             Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();

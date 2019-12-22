@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminCategoryActivity">
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/slogen_category"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="27dp"
+        android:text="Add new Product"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        />
+
+    <LinearLayout
+        android:id="@+id/tShirt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slogen_category"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="55dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/tshirts"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="T-Shirt"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/denims_jeans"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tShirt"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="58dp">
+
+        <ImageView
+
+            android:layout_width="85dp"
+            android:layout_height="80dp"
+            android:src="@drawable/jeans"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Denims &amp; Jeans"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/Sweaters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/denims_jeans"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="62dp">
+
+        <ImageView
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/sweaters"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sweaters"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/dresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Sweaters"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="55dp">
+
+        <ImageView
+
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/female_dresses"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dresses"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/swimwear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dresses"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="60dp">
+
+        <ImageView
+
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/swimwear"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Swimwear"
+            android:textSize="20dp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+
+
+
+    </LinearLayout>
+
+</RelativeLayout>
