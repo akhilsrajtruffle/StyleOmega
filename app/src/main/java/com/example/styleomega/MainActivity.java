@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         Paper.init(this);
 
 
-
-
         registerLink = (TextView) findViewById(R.id.register_link);
         inputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
         inputPassword = (EditText) findViewById(R.id.login_password_input);
@@ -96,24 +94,22 @@ public class MainActivity extends AppCompatActivity {
         String userPasswordKey = Paper.book().read(Prevalent.userPasswordKey);
 
 
-
-        if (userPasswordKey !="" && userPhoneKey!="") {
-
+        if (userPasswordKey != "" && userPhoneKey != "") {
 
 
-            if(!TextUtils.isEmpty(userPhoneKey)&& !TextUtils.isEmpty(userPasswordKey)){
+            if (!TextUtils.isEmpty(userPhoneKey) && !TextUtils.isEmpty(userPasswordKey)) {
 
                 loadingBar.setTitle("Already logged in");
                 loadingBar.setMessage("Please wait ");
                 loadingBar.setCanceledOnTouchOutside(false);
                 loadingBar.show();
 
-                allowAccess(userPhoneKey,userPasswordKey);   //remember me function
+
+                allowAccess(userPhoneKey, userPasswordKey);   //remember me function
+
             }
 
         }
-
-
 
 
     }
@@ -139,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                            Prevalent.currentOnlineUser = usersData;
                             startActivity(intent);
                         } else {
                             Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
@@ -204,21 +201,20 @@ public class MainActivity extends AppCompatActivity {
 
                         if (usersData.getPassword().equals(password)) {
 
-                            if (parentDbName.equals("Admins")){
+                            if (parentDbName.equals("Admins")) {
 
                                 Toast.makeText(MainActivity.this, "Admin Successful Login", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(MainActivity.this,AdminCategoryActivity.class);
+                                Intent intent = new Intent(MainActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
 
-                            }
-                            else if(parentDbName.equals("Users")){
+                            } else if (parentDbName.equals("Users")) {
 
                                 Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
 
