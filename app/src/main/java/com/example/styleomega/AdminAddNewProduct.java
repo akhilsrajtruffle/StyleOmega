@@ -177,10 +177,10 @@ public class AdminAddNewProduct extends AppCompatActivity {
         productMap.put("date", saveCurrentDate);
         productMap.put("time", saveCurrentTime);
         productMap.put("description", description);
-        productMap.put("image ", downloadImageUrl);
-        productMap.put("category ", categoryName);
-        productMap.put("price ", price);
-        productMap.put("productName ", name);
+        productMap.put("image", downloadImageUrl);
+        productMap.put("category", categoryName);
+        productMap.put("price", price);
+        productMap.put("productName", name);
 
         productRef.child(productRandomKey).updateChildren(productMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

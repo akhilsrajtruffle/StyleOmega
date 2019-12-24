@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".ProductDetailsActivity">
 <ImageView
+    android:layout_marginTop="40dp"
     android:id="@+id/product_image_details"
     android:layout_width="match_parent"
-    android:layout_height="260dp"
+    android:layout_height="350dp"
     android:scaleType="centerCrop"
     />
 

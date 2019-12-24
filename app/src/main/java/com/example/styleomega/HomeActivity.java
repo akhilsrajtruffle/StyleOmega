@@ -138,9 +138,9 @@ public class HomeActivity extends AppCompatActivity implements
             protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
 
                 productViewHolder.txtProductName.setText(products.getProductName());
-                productViewHolder.txtProductDescription.setText(products.getDescription());
+               // productViewHolder.txtProductDescription.setText(products.getDescription());
                 productViewHolder.txtProductPrice.setText(products.getPrice() + "$");
-                Picasso.get().load(products.getImage()).into(productViewHolder.imageView);
+                Picasso.get().load(products.getImage()).fit().centerCrop().into(productViewHolder.imageView);
 
                 productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
