@@ -123,19 +123,31 @@ public class HomeActivity extends AppCompatActivity implements
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions<Products> option = new FirebaseRecyclerOptions.Builder<Products>()
-                .setQuery(productRef, Products.class)
-                .build();
+        FirebaseRecyclerOptions<Products> option =
+                new FirebaseRecyclerOptions.Builder<Products>()
+                        .setQuery(productRef, Products.class)
+                        .build();
 
 
-        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter = new FirebaseRecyclerAdapter<Products, ProductViewHolder>(option) {
+        FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
+                new FirebaseRecyclerAdapter<Products, ProductViewHolder>(option) {
             @Override
-            protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull Products products) {
+            protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
 
                 productViewHolder.txtProductName.setText(products.getProductName());
                 productViewHolder.txtProductDescription.setText(products.getDescription());
                 productViewHolder.txtProductPrice.setText(products.getPrice() + "$");
                 Picasso.get().load(products.getImage()).into(productViewHolder.imageView);
+
+                productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent intent = new Intent(HomeActivity.this,ProductDetailsActivity.class);
+                        intent.putExtra("pid",products.getPid());
+                        startActivity(intent);
+                    }
+                });
 
 
             }
