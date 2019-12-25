@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +27,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+
+
+
+import java.sql.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class ProductDetailsActivity extends AppCompatActivity {
 
@@ -37,6 +46,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
     private ElegantNumberButton numberButton;
     private TextView productPrice, productDescription, productName;
     private String productID = "";
+    private Spinner sizeSpinner;
 
 
     @Override
@@ -53,6 +63,17 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescription = (TextView) findViewById(R.id.product_description_details);
         productName = (TextView) findViewById(R.id.product_name_details);
         addToCartButton = (Button)findViewById(R.id.pd_add_to_cart_button) ;
+
+        sizeSpinner = (Spinner) findViewById(R.id.size_spinner);
+        List<String> sizes = new ArrayList<>(Arrays.asList("S", "M", "L", "XL", "XXL"));
+        ArrayAdapter<String> sizeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sizes);
+
+        sizeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        sizeSpinner.setAdapter(sizeAdapter);
+
+
+
 
         getProductDetails(productID);
 
@@ -80,6 +101,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         final HashMap<String,Object> cartMap = new HashMap<>();
         cartMap.put("pid",productID);
+        cartMap.put("size",sizeSpinner.getSelectedItem().toString());
         cartMap.put("productName",productName.getText().toString());
         cartMap.put("price",productPrice.getText().toString());
         cartMap.put("date",saveCurrentDate);
