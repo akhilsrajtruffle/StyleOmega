@@ -6,12 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".CartActivity">
 
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp"
+        android:layout_above="@+id/rl11">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
     <RelativeLayout
         android:id="@+id/rl11"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:layout_above="@+id/checkout_button"
 
         >
 
@@ -19,24 +30,14 @@
             android:id="@+id/total_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cart"
+            android:text="Total Price : "
             android:textColor="@android:color/white"
             android:textSize="20dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
+            android:textAlignment="center"
 
             />
     </RelativeLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cart_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/rl11"
-        android:layout_above="@+id/checkout_button">
-
-    </androidx.recyclerview.widget.RecyclerView>
 
     <Button
 

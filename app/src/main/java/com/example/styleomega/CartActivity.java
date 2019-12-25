@@ -37,6 +37,10 @@ public class CartActivity extends AppCompatActivity {
     private Button checkoutButton;
     private TextView txtTotalAmount;
 
+    private int overallTotalPrice = 0;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,21 @@ public class CartActivity extends AppCompatActivity {
 
         checkoutButton = (Button) findViewById(R.id.checkout_button);
         txtTotalAmount = (TextView) findViewById(R.id.total_price);
+
+
+        checkoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                txtTotalAmount.setText(String.valueOf(overallTotalPrice));
+
+
+                Intent intent = new Intent(CartActivity.this,ConfirmFinalOrderActivity.class);
+                intent.putExtra("Total Price",String.valueOf(overallTotalPrice));
+                startActivity(intent);
+                finish();
+            }
+        });
 
 
     }
@@ -70,9 +89,15 @@ public class CartActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull final Cart model) {
 
-                holder.txtProductQuantity.setText(model.getQuantity());
-                holder.txtProductPrice.setText(model.getPrice());
+                holder.txtProductQuantity.setText("Quantity : " + model.getQuantity());
+                holder.txtProductPrice.setText("Price : " + model.getPrice()+"$");
                 holder.txtProductName.setText(model.getProductName());
+
+                int productTotalPrice = ((Integer.valueOf(model.getPrice()))) * Integer.valueOf(model.getQuantity());
+
+                overallTotalPrice = overallTotalPrice+ productTotalPrice;
+
+                txtTotalAmount.setText("Total Price : "+ overallTotalPrice +"$");
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -92,28 +117,31 @@ public class CartActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
-                                if(which==0){
-                                    Intent intent = new Intent(CartActivity.this,ProductDetailsActivity.class);
-                                    intent.putExtra("pid",model.getPid());
+                                if (which == 0) {
+                                    Intent intent = new Intent(CartActivity.this, ProductDetailsActivity.class);
+                                    intent.putExtra("pid", model.getPid());
                                     startActivity(intent);
 
 
                                 }
-                                if(which==1){
+                                if (which == 1) {
                                     cartListRef.child("User View").child(Prevalent.currentOnlineUser.getPhone())
                                             .child("Products").child(model.getPid()).removeValue()
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
 
-                                                    if(task.isSuccessful()){
+                                                    if (task.isSuccessful()) {
                                                         Toast.makeText(CartActivity.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
 
-                                                        Intent intent = new Intent(CartActivity.this,HomeActivity.class);
+                                                        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
                                                         startActivity(intent);
                                                     }
                                                 }
                                             });
+                                    cartListRef.child("Admin View").child(Prevalent.currentOnlineUser.getPhone())
+                                            .child("Products").child(model.getPid()).removeValue();
+
                                 }
                             }
                         });
