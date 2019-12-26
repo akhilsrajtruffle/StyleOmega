@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity"
-    android:background="@android:color/black">
+    android:background="@android:color/background_light"
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/app_logo"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/applogowhite"
         android:layout_centerHorizontal="true"
-        />
+        android:src="@drawable/applogo" />
 
     <TextView
         android:id="@+id/register_username_input"
@@ -21,84 +20,78 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/app_logo"
         android:layout_alignParentStart="true"
-        android:layout_marginEnd="23dp"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="23dp"
         android:text="Create your Account"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold" />
+
     <EditText
+        android:id="@+id/register_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/register_name_input"
-        android:backgroundTint="@android:color/white"
         android:layout_below="@id/register_username_input"
-        android:padding="20dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="30dp"
         android:hint="Name"
         android:inputType="text"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
         android:textSize="17sp"
-        android:textStyle="normal"
-        />
+        android:textStyle="normal" />
+
     <EditText
+        android:id="@+id/register_email_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/register_email_input"
-        android:backgroundTint="@android:color/white"
         android:layout_below="@id/register_name_input"
-        android:padding="20dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="30dp"
         android:hint="Email"
         android:inputType="text"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
         android:textSize="17sp"
-        android:textStyle="normal"
-        />
+        android:textStyle="normal" />
 
     <EditText
+        android:id="@+id/register_phone_number_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/register_phone_number_input"
-        android:backgroundTint="@android:color/white"
         android:layout_below="@id/register_email_input"
-        android:padding="20dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="30dp"
         android:hint="Phone Number"
         android:inputType="number"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
         android:textSize="17sp"
-        android:textStyle="normal"
-        />
+        android:textStyle="normal" />
 
 
     <EditText
+        android:id="@+id/register_password_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/register_password_input"
         android:layout_below="@id/register_phone_number_input"
-        android:backgroundTint="@android:color/white"
-        android:padding="20dp"
         android:layout_marginLeft="45dp"
-        android:layout_marginRight="30dp"
         android:layout_marginTop="2dp"
+        android:layout_marginRight="30dp"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:padding="20dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimary"
         android:textSize="17sp"
-        android:textStyle="normal"
-        />
+        android:textStyle="normal" />
 
 
     <Button
@@ -108,28 +101,29 @@
         android:layout_below="@+id/register_password_input"
         android:layout_alignParentStart="true"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="34dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/buttons2"
+        android:background="@drawable/buttons"
         android:padding="20dp"
         android:text="Sign up"
         android:textAllCaps="false"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:textSize="18sp" />
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/login_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/register_btn"
-        android:layout_marginEnd="23dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="40dp"
-        android:text="Already have an Account? login"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="23dp"
+        android:text="Already have an Account? login"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
         android:textStyle="bold" />
 
 
