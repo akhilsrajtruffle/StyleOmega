@@ -11,7 +11,7 @@ import com.example.styleomega.R;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public TextView txtProductName,txtProductPrice,txtProductQuantity;
+    public TextView txtProductName,txtProductPrice,txtProductQuantity,txtSize;
 
     private ItemClickListener itemClickListener;
 
@@ -23,6 +23,7 @@ public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         txtProductName = itemView.findViewById(R.id.cart_product_name);
         txtProductPrice = itemView.findViewById(R.id.cart_product_price);
         txtProductQuantity = itemView.findViewById(R.id.cart_product_quantity);
+        txtSize = itemView.findViewById(R.id.cart_product_size);
     }
 
     @Override
