@@ -61,8 +61,8 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productDescription = (TextView) findViewById(R.id.product_description_details);
         productName = (TextView) findViewById(R.id.product_name_details);
         addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
-
         sizeSpinner = (Spinner) findViewById(R.id.size_spinner);
+
         List<String> sizes = new ArrayList<>(Arrays.asList("S", "M", "L", "XL", "XXL"));
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sizes);
 

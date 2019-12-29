@@ -37,6 +37,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(AdminCategoryActivity.this,MainActivity.class);
+
+                //any existing task that would be associated with the activity to be cleared before the activity is started
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
                 finish();
@@ -52,7 +54,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 Intent intent = new Intent(AdminCategoryActivity.this,AdminNewOrdersActivity.class);
 
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
 
