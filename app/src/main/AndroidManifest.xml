@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SearchProductActivity"></activity>
+        <activity android:name=".ViewCategoryActivity"></activity>
+        <activity android:name=".CategoryActivity" />
+        <activity android:name=".SearchProductActivity" />
         <activity android:name=".AdminUserProductsActivity" />
         <activity android:name=".AdminNewOrdersActivity" />
         <activity android:name=".ConfirmFinalOrderActivity" />
