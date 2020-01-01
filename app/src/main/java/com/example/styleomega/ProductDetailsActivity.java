@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
+import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -40,7 +43,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     // private FloatingActionButton addToCartBtn;
     private Button addToCartButton;
-    private ImageView productImage;
+    private ImageView productImage,shareButton;
     private ElegantNumberButton numberButton;
     private TextView productPrice, productDescription, productName;
     private String productID = "", status = "normal";
@@ -62,6 +65,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         productName = (TextView) findViewById(R.id.product_name_details);
         addToCartButton = (Button) findViewById(R.id.pd_add_to_cart_button);
         sizeSpinner = (Spinner) findViewById(R.id.size_spinner);
+        shareButton = (ImageView) findViewById(R.id.share_btn);
 
         List<String> sizes = new ArrayList<>(Arrays.asList("S", "M", "L", "XL", "XXL"));
         ArrayAdapter<String> sizeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sizes);
@@ -73,20 +77,42 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
         getProductDetails(productID);
 
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/html");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
+                startActivity(Intent.createChooser(sharingIntent, "Share using"));
+//                try {
+//                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+//                    shareIntent.setType("text/plain");
+//                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
+//                    String shareMessage= "\nLet me recommend you this application\n\n";
+//                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+//                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+//                    startActivity(Intent.createChooser(shareIntent, "choose one"));
+//                } catch(Exception e) {
+//                    Toast.makeText(ProductDetailsActivity.this, "cannot share", Toast.LENGTH_SHORT).show();
+//                }
+            }
+        });
+
         addToCartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-
-                if(status.equals("order placed")||status.equals("order shipped")){
+                if (status.equals("order placed") || status.equals("order shipped")) {
                     Toast.makeText(ProductDetailsActivity.this, "You can order once your last order is shipped", Toast.LENGTH_LONG).show();
-                }
-                else {
+                } else {
                     addingToCartList();
                 }
             }
         });
+
+
 
     }
 
@@ -212,4 +238,6 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
