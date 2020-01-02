@@ -71,7 +71,7 @@ public class HomeActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+                Intent intent = new Intent(HomeActivity.this, CartActivity.class);
                 startActivity(intent);
 
 
@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity implements
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_cart, R.id.nav_search, R.id.nav_categories,
-                R.id.nav_settings, R.id.nav_logout)
+                R.id.nav_settings, R.id.nav_logout, R.id.contact_us)
                 .setDrawerLayout(drawer)
                 .build();
 //        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -120,7 +120,6 @@ public class HomeActivity extends AppCompatActivity implements
         int id = item.getItemId();
 
 
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -136,36 +135,36 @@ public class HomeActivity extends AppCompatActivity implements
 
         FirebaseRecyclerAdapter<Products, ProductViewHolder> adapter =
                 new FirebaseRecyclerAdapter<Products, ProductViewHolder>(option) {
-            @Override
-            protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
-
-                productViewHolder.txtProductName.setText(products.getProductName());
-               // productViewHolder.txtProductDescription.setText(products.getDescription());
-                productViewHolder.txtProductPrice.setText(products.getPrice() + "$");
-                Picasso.get().load(products.getImage()).fit().centerCrop().into(productViewHolder.imageView);
-
-                productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v) {
+                    protected void onBindViewHolder(@NonNull ProductViewHolder productViewHolder, int i, @NonNull final Products products) {
 
-                        Intent intent = new Intent(HomeActivity.this,ProductDetailsActivity.class);
-                        intent.putExtra("pid",products.getPid());
-                        startActivity(intent);
+                        productViewHolder.txtProductName.setText(products.getProductName());
+                        // productViewHolder.txtProductDescription.setText(products.getDescription());
+                        productViewHolder.txtProductPrice.setText(products.getPrice() + "$");
+                        Picasso.get().load(products.getImage()).fit().centerCrop().into(productViewHolder.imageView);
+
+                        productViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                Intent intent = new Intent(HomeActivity.this, ProductDetailsActivity.class);
+                                intent.putExtra("pid", products.getPid());
+                                startActivity(intent);
+                            }
+                        });
+
+
                     }
-                });
 
+                    @NonNull
+                    @Override
+                    public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-            }
-
-            @NonNull
-            @Override
-            public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
-                ProductViewHolder holder = new ProductViewHolder(view);
-                return holder;
-            }
-        };
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_items_layout, parent, false);
+                        ProductViewHolder holder = new ProductViewHolder(view);
+                        return holder;
+                    }
+                };
 
         recyclerView.setAdapter(adapter);
         adapter.startListening();
@@ -185,27 +184,32 @@ public class HomeActivity extends AppCompatActivity implements
 //                || super.onSupportNavigateUp();
 //    }
 
-        @Override
+    @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         int id = menuItem.getItemId();
 
         if (id == R.id.nav_cart) {
-            Intent intent = new Intent(HomeActivity.this,CartActivity.class);
+            Intent intent = new Intent(HomeActivity.this, CartActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_search) {
 
-            Intent intent = new Intent(HomeActivity.this,SearchProductActivity.class);
+            Intent intent = new Intent(HomeActivity.this, SearchProductActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_categories) {
 
-            Intent intent = new Intent(HomeActivity.this,CategoryActivity.class);
+            Intent intent = new Intent(HomeActivity.this, CategoryActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_settings) {
 
-            Intent intent = new Intent(HomeActivity.this,SettingsActivity.class);
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
+
+        } else if (id == R.id.contact_us) {
+
+            Intent intent = new Intent(HomeActivity.this, ContactUsActivity.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_logout) {

@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewCategoryActivity"></activity>
+        <activity android:name=".ContactUsActivity"></activity>
+        <activity android:name=".ViewCategoryActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".SearchProductActivity" />
         <activity android:name=".AdminUserProductsActivity" />

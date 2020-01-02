@@ -88,10 +88,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
                 try {
 
-//                    
+//
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
-                    String message = productName.getText().toString()+"\n"+productDescription.getText().toString()+"\n"+productPrice.getText().toString();
+                    String message = productName.getText().toString()+"\n"+productDescription.getText().toString()+"\n$"+productPrice.getText().toString();
                     sendIntent.putExtra(Intent.EXTRA_TEXT, message);
                     sendIntent.setType("text/plain");
 
