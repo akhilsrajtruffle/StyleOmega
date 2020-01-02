@@ -86,17 +86,20 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 sharingIntent.setType("text/html");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p>This is the text shared.</p>"));
                 startActivity(Intent.createChooser(sharingIntent, "Share using"));
-//                try {
-//                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-//                    shareIntent.setType("text/plain");
-//                    shareIntent.putExtra(Intent.EXTRA_SUBJECT, "My application name");
-//                    String shareMessage= "\nLet me recommend you this application\n\n";
-//                    shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
-//                    shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
-//                    startActivity(Intent.createChooser(shareIntent, "choose one"));
-//                } catch(Exception e) {
-//                    Toast.makeText(ProductDetailsActivity.this, "cannot share", Toast.LENGTH_SHORT).show();
-//                }
+                try {
+
+//                    
+                    Intent sendIntent = new Intent();
+                    sendIntent.setAction(Intent.ACTION_SEND);
+                    String message = productName.getText().toString()+"\n"+productDescription.getText().toString()+"\n"+productPrice.getText().toString();
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+                    sendIntent.setType("text/plain");
+
+                    Intent shareIntent = Intent.createChooser(sendIntent, null);
+                    startActivity(shareIntent);
+                } catch(Exception e) {
+                    Toast.makeText(ProductDetailsActivity.this, "cannot share", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
