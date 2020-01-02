@@ -25,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -88,13 +89,20 @@ public class AdminAddNewProduct extends AppCompatActivity {
         price = inputProductPrice.getText().toString();
 
         if (imageUri == null) {
-            Toast.makeText(this, "Product Image is Required", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Product Image is Required",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+//            Toast.makeText(this, "Product Image is Required", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(name)) {
-            Toast.makeText(this, "Product Name is Required", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this, "Product Name is Required",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Product Name is Required", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(description)) {
-            Toast.makeText(this, "Product Description is Required", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Product Description is Required",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Product Description is Required", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(price)) {
-            Toast.makeText(this, "Product Price is Required", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Product Price is Required",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Product Price is Required", Toast.LENGTH_SHORT).show();
         } else {
             storeProductInformation();
         }
@@ -125,7 +133,9 @@ public class AdminAddNewProduct extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
 
                 String message = e.toString();
-                Toast.makeText(AdminAddNewProduct.this, "Error " + message, Toast.LENGTH_SHORT).show();
+                FancyToast.makeText(AdminAddNewProduct.this,"Error " + message,FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//                Toast.makeText(AdminAddNewProduct.this, "Error " + message, Toast.LENGTH_SHORT).show();
                 loadingBar.dismiss();
 
             }
@@ -133,7 +143,10 @@ public class AdminAddNewProduct extends AppCompatActivity {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                Toast.makeText(AdminAddNewProduct.this, "Product Image Uploaded Successfully ", Toast.LENGTH_SHORT).show();
+                FancyToast.makeText(AdminAddNewProduct.this,"Product Image Uploaded Successfully ",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+
+//                Toast.makeText(AdminAddNewProduct.this, "Product Image Uploaded Successfully ", Toast.LENGTH_SHORT).show();
 
                 Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -194,11 +207,16 @@ public class AdminAddNewProduct extends AppCompatActivity {
                             startActivity(intent);
 
                             loadingBar.dismiss();
-                            Toast.makeText(AdminAddNewProduct.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(AdminAddNewProduct.this,"Product is added successfully",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                            Toast.makeText(AdminAddNewProduct.this, "Product is added successfully", Toast.LENGTH_SHORT).show();
                         } else {
                             loadingBar.dismiss();
                             String message = task.getException().toString();
-                            Toast.makeText(AdminAddNewProduct.this, "Error: " + message, Toast.LENGTH_SHORT).show();
+
+                            FancyToast.makeText(AdminAddNewProduct.this,"Error " + message,FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//                            Toast.makeText(AdminAddNewProduct.this, "Error: " + message, Toast.LENGTH_SHORT).show();
                         }
 
                     }

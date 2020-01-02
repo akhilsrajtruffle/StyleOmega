@@ -28,6 +28,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.squareup.picasso.Picasso;
 
 
@@ -105,7 +106,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
                 if (status.equals("order placed") || status.equals("order shipped")) {
-                    Toast.makeText(ProductDetailsActivity.this, "You can order once your last order is shipped", Toast.LENGTH_LONG).show();
+                    FancyToast.makeText(ProductDetailsActivity.this,"You can order once your last order is shipped",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//                    Toast.makeText(ProductDetailsActivity.this, "You can order once your last order is shipped", Toast.LENGTH_LONG).show();
                 } else {
                     addingToCartList();
                 }
@@ -162,7 +165,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
 
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(ProductDetailsActivity.this, "Added to Cart List", Toast.LENGTH_SHORT).show();
+
+                                                FancyToast.makeText(ProductDetailsActivity.this,"Added to Cart List",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                                                Toast.makeText(ProductDetailsActivity.this, "Added to Cart List", Toast.LENGTH_SHORT).show();
 
                                                 Intent intent = new Intent(ProductDetailsActivity.this, HomeActivity.class);
                                                 startActivity(intent);

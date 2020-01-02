@@ -21,6 +21,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.widget.CheckBox;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import io.paperdb.Paper;
 
@@ -131,20 +132,24 @@ public class MainActivity extends AppCompatActivity {
 
                         if (usersData.getPassword().equals(password)) {
 
-                            Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(MainActivity.this,"Successful Login",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+//                            Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
 
                             Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                             Prevalent.currentOnlineUser = usersData;
                             startActivity(intent);
                         } else {
-                            Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+
+                            FancyToast.makeText(MainActivity.this,"Password is incorrect",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+//                            Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
                         }
                     }
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Account with this " + phone + " number do not exist", Toast.LENGTH_SHORT).show();
+                    FancyToast.makeText(MainActivity.this,"Account with this " + phone + " number do not exist",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+//                    Toast.makeText(MainActivity.this, "Account with this " + phone + " number do not exist", Toast.LENGTH_SHORT).show();
 
                     loadingBar.dismiss();
                 }
@@ -166,9 +171,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
+
+            FancyToast.makeText(MainActivity.this,"Please Enter Your Phone Number",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+//            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(MainActivity.this,"Please Enter Your Password",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+//            Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
         } else {
             loadingBar.setTitle("Login Account");
             loadingBar.setMessage("Please wait while we are checking the credentials");
@@ -203,7 +211,8 @@ public class MainActivity extends AppCompatActivity {
 
                             if (parentDbName.equals("Admins")) {
 
-                                Toast.makeText(MainActivity.this, "Admin Successful Login", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(MainActivity.this,"Admin successful login",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+                                //Toast.makeText(MainActivity.this, "Admin Successful Login", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(MainActivity.this, AdminCategoryActivity.class);
@@ -211,7 +220,10 @@ public class MainActivity extends AppCompatActivity {
 
                             } else if (parentDbName.equals("Users")) {
 
-                                Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
+
+
+                                FancyToast.makeText(MainActivity.this,"Successful Login",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+                                //Toast.makeText(MainActivity.this, "Successful Login", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
@@ -220,13 +232,16 @@ public class MainActivity extends AppCompatActivity {
 
                             }
                         } else {
-                            Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
+                            FancyToast.makeText(MainActivity.this,"Password is incorrect",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+//                            Toast.makeText(MainActivity.this, "Password is incorrect", Toast.LENGTH_SHORT).show();
                             loadingBar.dismiss();
                         }
                     }
 
                 } else {
-                    Toast.makeText(MainActivity.this, "Account with this " + phone + " number do not exist", Toast.LENGTH_SHORT).show();
+
+                    FancyToast.makeText(MainActivity.this,"Account with this " + phone + " number do not exist",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+//                    Toast.makeText(MainActivity.this, "Account with this " + phone + " number do not exist", Toast.LENGTH_SHORT).show();
 
                     loadingBar.dismiss();
                 }
