@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ public class SearchProductActivity extends AppCompatActivity {
         searchBtn = findViewById(R.id.search_btn);
         searchList = findViewById(R.id.search_list);
 
-        searchList.setLayoutManager(new LinearLayoutManager(SearchProductActivity.this));
+        searchList.setLayoutManager( new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override

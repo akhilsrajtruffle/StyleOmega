@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,7 +37,7 @@ public class ViewCategoryActivity extends AppCompatActivity {
 
         recyclerViewCat = findViewById(R.id.recycler_menu_2);
         recyclerViewCat.setHasFixedSize(true);
-        layoutManagerCat = new LinearLayoutManager(this);
+        layoutManagerCat = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerViewCat.setLayoutManager(layoutManagerCat);
     }
 
