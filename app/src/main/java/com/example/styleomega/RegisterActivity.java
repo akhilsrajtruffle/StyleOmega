@@ -20,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.util.HashMap;
 
@@ -71,13 +72,21 @@ public class RegisterActivity extends AppCompatActivity {
         String password = inputPassword.getText().toString();
 
         if (TextUtils.isEmpty(name)) {
-            Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Please Enter Your Name",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(phone)) {
-            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Please Enter Your Phone Number",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
         } else if (TextUtils.isEmpty(password)) {
-            Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Please Enter Your Password",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_SHORT).show();
         } else if(TextUtils.isEmpty(email)){
-            Toast.makeText(this, "Please Enter Your Email", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Please Enter Your Email",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Please Enter Your Email", Toast.LENGTH_SHORT).show();
         }else {
             loadingBar.setTitle("Create Account");
             loadingBar.setMessage("Please wait while we are checking the credentials");
@@ -112,7 +121,9 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful()){
-                                Toast.makeText(RegisterActivity.this, "Your account has been created", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(RegisterActivity.this, "Your account has been created",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                                Toast.makeText(RegisterActivity.this, "Your account has been created", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
                                 Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
@@ -121,13 +132,17 @@ public class RegisterActivity extends AppCompatActivity {
                             else
                             {
                                 loadingBar.dismiss();
-                                Toast.makeText(RegisterActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(RegisterActivity.this, "Network Error",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//                                Toast.makeText(RegisterActivity.this, "Network Error", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
 
                 } else {
-                    Toast.makeText(RegisterActivity.this, "This " + phone + " already exist", Toast.LENGTH_SHORT).show();
+                    FancyToast.makeText(RegisterActivity.this, "This " + phone + " already exist",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//                    Toast.makeText(RegisterActivity.this, "This " + phone + " already exist", Toast.LENGTH_SHORT).show();
                     loadingBar.dismiss();
 
                     Intent intent = new Intent(RegisterActivity.this,MainActivity.class);

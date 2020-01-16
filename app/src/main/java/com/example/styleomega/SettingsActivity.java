@@ -26,6 +26,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 
@@ -118,7 +119,9 @@ public class SettingsActivity extends AppCompatActivity {
 
 
         startActivity(new Intent(SettingsActivity.this,HomeActivity.class));
-        Toast.makeText(SettingsActivity.this, "Profile Information Updated Successfully", Toast.LENGTH_SHORT).show();
+        FancyToast.makeText(SettingsActivity.this,"Profile Information Updated Successfully",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//        Toast.makeText(SettingsActivity.this, "Profile Information Updated Successfully", Toast.LENGTH_SHORT).show();
         finish();
 
 
@@ -136,7 +139,9 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         else{
-            Toast.makeText(this, "Error, Try Again", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Error, Try Again",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//            Toast.makeText(this, "Error, Try Again", Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(SettingsActivity.this, SettingsActivity.class));
             finish();
@@ -147,19 +152,28 @@ public class SettingsActivity extends AppCompatActivity {
 
         if(TextUtils.isEmpty(fullNameEditText.getText().toString())){
 
-            Toast.makeText(this, "Enter the Name", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the Name",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+
+//            Toast.makeText(this, "Enter the Name", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(addressEditText.getText().toString())){
 
-            Toast.makeText(this, "Enter the address", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the address",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the address", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(userPhoneEditText.getText().toString())){
 
-            Toast.makeText(this, "Enter the phone number", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the phone number",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the phone number", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(userPasswordEditText.getText().toString())){
 
-            Toast.makeText(this, "Enter the password", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the password",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the password", Toast.LENGTH_SHORT).show();
         }
         else if(checker.equals("clicked")){
 
@@ -213,14 +227,18 @@ public class SettingsActivity extends AppCompatActivity {
 
                                 progressDialog.dismiss();
                                 startActivity(new Intent(SettingsActivity.this,HomeActivity.class));
-                                Toast.makeText(SettingsActivity.this, "Profile Information Updated Successfully", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(SettingsActivity.this,"Profile Information Updated Successfully",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                                Toast.makeText(SettingsActivity.this, "Profile Information Updated Successfully", Toast.LENGTH_SHORT).show();
                                 finish();
 
 
                             }
                             else{
                                 progressDialog.dismiss();
-                                Toast.makeText(SettingsActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(SettingsActivity.this, "Error",FancyToast.LENGTH_LONG,FancyToast.ERROR,true).show();
+
+//                                Toast.makeText(SettingsActivity.this, "Error", Toast.LENGTH_SHORT).show();
                             }
 
                         }
@@ -228,7 +246,9 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         else{
-            Toast.makeText(this, "Image is not selected", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Image is not selected",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Image is not selected", Toast.LENGTH_SHORT).show();
         }
     }
 

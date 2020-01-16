@@ -32,6 +32,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.rey.material.drawable.RevealDrawable;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 public class CartActivity extends AppCompatActivity {
 
@@ -138,7 +139,9 @@ public class CartActivity extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
 
                                                     if (task.isSuccessful()) {
-                                                        Toast.makeText(CartActivity.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
+                                                        FancyToast.makeText(CartActivity.this,"Item removed successfully",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                                                        Toast.makeText(CartActivity.this, "Item removed successfully", Toast.LENGTH_SHORT).show();
 
                                                         Intent intent = new Intent(CartActivity.this, HomeActivity.class);
                                                         startActivity(intent);

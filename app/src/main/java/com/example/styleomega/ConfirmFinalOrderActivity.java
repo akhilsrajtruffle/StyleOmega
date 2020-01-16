@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -59,16 +60,24 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
     private void check() {
 
         if(TextUtils.isEmpty(nameEditText.getText().toString())){
-            Toast.makeText(this, "Enter the name", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the name",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the name", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(phoneEditText.getText().toString())){
-            Toast.makeText(this, "Enter the phone number", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the phone number",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the phone number", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(addressEditText.getText().toString())){
-            Toast.makeText(this, "Enter the address", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the address",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the address", Toast.LENGTH_SHORT).show();
         }
         else if(TextUtils.isEmpty(cityEditText.getText().toString())){
-            Toast.makeText(this, "Enter the city", Toast.LENGTH_SHORT).show();
+            FancyToast.makeText(this,"Enter the city",FancyToast.LENGTH_LONG,FancyToast.INFO,true).show();
+
+//            Toast.makeText(this, "Enter the city", Toast.LENGTH_SHORT).show();
         }
         else{
 
@@ -115,7 +124,9 @@ public class ConfirmFinalOrderActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
-                                Toast.makeText(ConfirmFinalOrderActivity.this, "Order has been placed successfully", Toast.LENGTH_SHORT).show();
+                                FancyToast.makeText(ConfirmFinalOrderActivity.this,"Order has been placed successfully",FancyToast.LENGTH_LONG,FancyToast.SUCCESS,true).show();
+
+//                                Toast.makeText(ConfirmFinalOrderActivity.this, "Order has been placed successfully", Toast.LENGTH_SHORT).show();
 
                                 Intent intent = new Intent(ConfirmFinalOrderActivity.this,HomeActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);

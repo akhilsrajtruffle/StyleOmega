@@ -43,8 +43,6 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
 
-
-
             }
         });
 

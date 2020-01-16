@@ -5,13 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ProductDetailsActivity">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/ic_menu_share"
+        android:id="@+id/share_btn"/>
+
 <ImageView
     android:layout_marginTop="40dp"
     android:id="@+id/product_image_details"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="400dp"
     android:scaleType="centerCrop"
     />
+
+
+
 
     <TextView
         android:id="@+id/product_name_details"
